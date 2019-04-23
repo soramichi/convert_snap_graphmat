@@ -9,7 +9,6 @@ typedef unsigned long itype;
 int main(int argc, char* argv[]) {
   char buff[1024];
   itype s, d;
-  itype min = 1e9;
   std::set<itype> nodes = std::set<itype>();
   std::map<itype, unsigned long> new_ids = std::map<itype, unsigned long>();
   FILE* f;
@@ -39,7 +38,7 @@ int main(int argc, char* argv[]) {
   while(fgets(buff, sizeof(buff), f)) {
     std::stringstream ss(buff);
     ss >> s >> d;    
-    printf("%ld %ld 1\n", new_ids[s], new_ids[d], 1);
+    printf("%ld %ld 1\n", new_ids[s], new_ids[d]);
   }
 
   return 0;
