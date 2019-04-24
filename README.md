@@ -2,6 +2,7 @@
 - Convert SNAP graph (e.g. ego-Twitter) file into the txt format comaptible with GraphMat.
 - The output can then be converted to the binary format of GraphMat using the graph_converter included in GraphMat.
 - The sample input is provided as `sample.graph' (each line describes source and destination node IDs of an edge). The node IDs do not need to be contiguous (they are not contiguous in the SNAP dataset).
+- GraphMat may not compile as is (it didn't on Debian buster + gcc 8.3.0). Try [this patch](https://github.com/soramichi/GraphMat/commit/3306b33b5c58c535149689d38202ecfd7a523cc6) in that case.
 
 # How to use
 ```
