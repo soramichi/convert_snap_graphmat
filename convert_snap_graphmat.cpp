@@ -4,6 +4,8 @@
 #include <set>
 #include <map>
 
+// For an input that has very large node IDs, use double instead of unsigned long.
+// (No idea why uint64_t doesn't work. Maybe it's not compatible with sstream::operator>>().)
 typedef unsigned long itype;
 
 int main(int argc, char* argv[]) {
@@ -18,7 +20,7 @@ int main(int argc, char* argv[]) {
     perror("");
   }
 
-  // 1st phase: insert node ids to a set
+  // 1st phase: insert node IDs to a set (ordered, de-duplicated)
   while(fgets(buff, sizeof(buff), f)) {
     std::stringstream ss(buff);
     ss >> s >> d;
@@ -33,7 +35,7 @@ int main(int argc, char* argv[]) {
     new_id++;
   }
   
-  // 2nd phase: convert node numbers (start and end of an edge) to their new ids
+  // 2nd phase: convert original node IDs to the new IDs
   rewind(f);
   while(fgets(buff, sizeof(buff), f)) {
     std::stringstream ss(buff);
