@@ -12,7 +12,7 @@ $ gzip -d twitter_combined.txt.gz
 
 # Make this program and convert the downloaded txt into a GraphMat-compatible format
 $ make
-$ ./convert_snap_graphmat.cpp twitter_combined.txt > twitter_combined_graphmat.txt
+$ ./convert_snap_graphmat twitter_combined.txt > twitter_combined_graphmat.txt
 
 # Use the converter included in GraphMat to convert it into a binary format (for efficiency)
 $ /path/to/GraphMat/bin/graph_converter --selfloops 1 --duplicatededges 1 --inputformat 1 --outputformat 0 --inputheader 0 --outputheader 1 --nvertices 81306 data/twitter_combined_graphmat.txt twitter_combined.bin.mtx
